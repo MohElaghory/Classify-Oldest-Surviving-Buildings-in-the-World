@@ -1,6 +1,6 @@
-# Classify Oldest Surviving Buildings in the World
+# Classify Oldest Surviving Buildings in the World  📝 📚 🔥 🔥
 
-### Scraping Data, Image Classification Using CNN, and Deploy Model with **FLASK API** 
+### Scraping Data, Image Classification Using CNN, and Deploy Model with **FLASK API** 👌👌👌
 
 ________
 
@@ -55,6 +55,7 @@ _____
 ____
 
 ![download](https://user-images.githubusercontent.com/44786324/175093351-db73ef6c-51f0-48d7-a0b0-793d136429d8.png)
+
 ![download (1)](https://user-images.githubusercontent.com/44786324/175093399-6b9611bc-a4f0-4a7b-b709-e9708c484638.png)
 ![download (2)](https://user-images.githubusercontent.com/44786324/175093482-2821759c-5604-44f2-8810-9f2d10e7fd8c.png)
 ![download (3)](https://user-images.githubusercontent.com/44786324/175093535-ba0da169-3e9e-4ad3-b1ab-6271de5d4359.png)
