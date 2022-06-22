@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>App Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href=" {{ url_for('static', filename= 'css/style pro2.css') }} " />
+    
+</head>
+<body>
+
+
+    <marquee direction="right" scrollamount="4" id="contacts">
+        <ul>
+            <li><a href="mailto:nooormamdouh65@gmail.com." target="_blank"> <i class="fa fa-envelope fa-2x ayamail"></i> </a></li>
+            <li><a href="https://www.linkedin.com/in/mohelaghory/" target="_blank"> <i class="fab fa-linkedin fa-2x ayalinkedin"></i> </a></li>
+            <li><a href="https://github.com/MohElaghory" target="_blank"> <i class="fab fa-github fa-2x ayagithub"></i> </a></li>
+            <li><a href="https://www.kaggle.com/nourmamdouh" target="_blank"> <i class="fab fa-kaggle fa-2x ayakaggle"></i> </a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100007237548227" target="_blank"> <i class="fab fa-facebook fa-2x ayafacebook"></i> </a></li>
+            <span class="spright"> Copyright &copy; <span style="font-size: 24px; font-weight: bold; color: #0B0925">Mo Mamdouh Elaghory</span> Inc. </span>
+        </ul>
+    </marquee>
+
+    <a class= 'see_more' href="https://www.youtube.com/watch?v=kfrE1hnlVsg&t=19s" target="_blank"> <i class="fa fa-lightbulb" style= 'color: #D1C215; font-size: 22px;'></i> See More.. </a>
+
+    <h1 class= 'header'>Select a File To Upload...</h1>
+
+    <form action= '/' method= "post" enctype= "multipart/form-data">
+       <div class= parent>
+            <div class="file-input">
+                <input class="file" type="file" id="file" name="file" autocomplete="off" onchange="javascript:updateList()" required>
+                <label for="file"><i class="glyphicon glyphicon-cloud-upload" style= "margin-right: 5px; color: #D1C215;"></i> Upload</label>
+                <div id="fileList" class= 'selected-name'></div>
+            </div>
+        <p class= "button">
+            <input type="submit" value="Predict" class="btn btn-info">
+        </p>
+        </div>
+    </form> 
+
+    <!-- bullet point زي ما باين تحتينا علي طول كده فلو في رسايل فعلاً فخلاص لوبلي علي الرساله دي وأعرضهالي بس في get_flashed_messages() فبالتالي عشان الرسايل دي تظهرلي لازم استدعي فانكشن اسمها flash طبعاً في رسايل أنا عاملها ب -->
+    <p>
+        {% with messages= get_flashed_messages() %}
+            {% if messages %}
+                <ul class= 'message'>
+                    {% for message in messages %}
+                        <li> {{message}} </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </p>
+
+    {% if filename %}
+        <div class=" displayed_image">
+            <img src=" {{url_for('display_image', filename= filename)}}" style= 'box-shadow: 1px 1px 3px 3px #d1c115e1;'>
+        </div>
+    {% endif %}
+
+
+    {% if pred_result %}
+        <center> <p class= 'prediction_label'> {{pred_result}} </p> </center>
+    {% endif %}
+    
+
+    {% if first_built_result %}
+        <center style= 'margin-top: 33px;'> <span class= 'fir_span'> First Built - </span> <span class= 'sec_span'> {{first_built_result}} </span> </center>
+    {% endif %}
+
+
+    {% if country_name %}
+        <center style= 'margin-top: 10px; margin-bottom: 30px;'> <span class= 'fir_span'> Location - </span> <span class= 'sec_span'> {{country_name}} </span> </center>
+    {% endif %}
+
+
+    <script src="{{ url_for('static', filename= 'js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'js/main.js') }}"></script>
+
+</body>
+</html>
